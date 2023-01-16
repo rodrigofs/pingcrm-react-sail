@@ -1,0 +1,13 @@
+/* Base */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Components */
+@import 'components/button';
+@import 'components/form';
+@import 'components/react-select';
+@import 'components/toggle-switch';
+
+
+/* Utilities */
+@import 'tailwindcss/utilities';

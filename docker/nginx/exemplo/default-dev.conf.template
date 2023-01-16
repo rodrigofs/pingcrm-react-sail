@@ -1,0 +1,52 @@
+server {
+    error_log /dev/stdout info;
+    access_log /dev/stdout;
+
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+    charset utf-8;
+    gzip on;
+
+    gzip_types      text/plain application/xml;
+    gzip_proxied    no-cache no-store private expired;
+    gzip_min_length 1000;
+
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    #ssl on;
+
+    ssl_certificate     /etc/nginx/certs/server.crt;
+    ssl_certificate_key /etc/nginx/certs/server.key;
+
+
+    root /var/www/html/public;
+    index index.php index.html index.htm;
+
+    # Make site accessible from http://localhost/
+    server_name _;
+
+    error_page 404 /index.php;
+
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt  { log_not_found off; access_log off; }
+
+    location / {
+            try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass  sail-sqlserver:9000;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include  fastcgi_params;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    client_max_body_size 20M;
+}

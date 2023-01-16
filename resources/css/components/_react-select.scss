@@ -1,0 +1,67 @@
+.react-select__input:focus {
+    outline: none !important;
+    --tw-ring-color: none !important;
+}
+
+.react-select__value-container {
+    @apply pr-6 text-sm;
+    background-size: 0.7rem;
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    &::-ms-expand {
+        @apply opacity-0;
+    }
+}
+
+.react-select-container {
+
+}
+
+.react-select__control {
+	height: 29.6px !important;
+	min-height: 29.6px !important;
+	border-radius: 0.25rem !important;
+	//@apply sm:shadow-sm sm:text-sm;
+	//@apply xs:shadow-sm xs:text-sm;
+	//@apply lg:shadow-sm lg:text-sm;
+
+}
+
+.react-select__input-container {
+	margin: 0 !important;
+	padding-bottom: 0 !important;
+	padding-top: 0 !important;
+    border: 4px !important;
+}
+
+.react-select__indicator-separator {
+	margin-bottom: 8px !important;
+}
+
+.react-select__indicator {
+	padding: 0px 8px 0px 8px !important;
+}
+
+.react-select__option {
+	font-size: 0.8rem !important;
+	padding: 3px 12px !important;
+}
+
+.react-select__menu {
+	margin-top: 1px !important;
+    border-radius: 3px;
+}
+
+.react-select__menu-list {
+    top: 0 !important;
+    padding: 0px !important;
+}
+
+.react-select__option {
+    padding: 8px !important;
+}
+
+.react-select__option--is-selected {
+    padding: 8px !important;
+    border-radius: 3px;
+}
